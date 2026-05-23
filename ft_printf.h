@@ -11,5 +11,6 @@
 
 int	ft_printf(char *str, ...);
 size_t    ft_putstr(char *s, int fd);
+int     ft_print_putnbr(long long n);
 
 #endif
