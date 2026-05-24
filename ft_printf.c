@@ -7,7 +7,6 @@ void				ft_putchar_fd(char c, int fd);
 int	ft_printf(char *str, ...)
 {
 	va_list	arg;
-	char	whatisit;
 	size_t	i;
 	size_t	count;
 	size_t	protect;
@@ -41,7 +40,6 @@ int	ft_printf(char *str, ...)
 int	ft_whatisit(char str, va_list *arg)
 {
 	size_t	count;
-	char	*print;
 
 	count = 0;
 	if (str == '%')
