@@ -8,8 +8,8 @@ int	ft_printf(char *str, ...)
 {
 	va_list	arg;
 	size_t	i;
-	size_t	count;
-	size_t	protect;
+	int	count;
+	int	protect;
 
 	if (!str)
 		return (-1);	
@@ -20,7 +20,7 @@ int	ft_printf(char *str, ...)
 	{
 		if (str[i] != '%')
 		{
-			if(!ft_putchar(str[i], 1))
+			if(ft_putchar(str[i], 1) == 1)
 				return (-1);
 			count++;
 		}
@@ -28,7 +28,7 @@ int	ft_printf(char *str, ...)
 		{
 			i++;
 			protect = ft_whatisit(str[i], &arg);
-			if (!protect)
+			if (protect == -1)
 				return (-1);
 			count = count + protect;
 		}
@@ -43,7 +43,7 @@ int	ft_whatisit(char str, va_list *arg)
 
 	count = 0;
 	if (str == '%')
-		count = ft_putchar('%', 1);
+		count = ft_putchar('%', -1);
 	if (str == 'c')
 	{
 		count = ft_putchar(va_arg(*arg, int), 1);
@@ -54,7 +54,10 @@ int	ft_whatisit(char str, va_list *arg)
 		count = ft_print_putnbr(va_arg(*arg, int));
 	if (str == 'u')
 		count = ft_print_putnbr(va_arg(*arg, unsigned int));
-
+	if (str == 'x')
+		count = ft_putnbr_hex_lower(va_arg(*arg, unsigned int));
+	if (str == 'X')
+		count = ft_putnbr_hex_upper(va_arg(*arg, unsigned int));
 	return (count);
 }
 

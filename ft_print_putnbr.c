@@ -16,7 +16,7 @@ int     ft_print_putnbr(long long n)
                 count += ft_print_putnbr(n / 10);
         c = n % 10 + '0';
         if (!ft_putchar(c, 1))
-                return (0);
+                return (-1);
         count++;
         return (count);
 }
