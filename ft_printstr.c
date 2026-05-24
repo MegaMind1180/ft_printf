@@ -7,8 +7,9 @@ size_t    ft_putstr(char *s, int fd)
         i = 0;
         while (i < ft_strlen(s))
         {
-                write(fd, &s[i], 1);
-                i++;
+               if (write(fd, &s[i], 1) == -1)
+                       return (0);
+               i++;
         }
 		return (i);
 }
