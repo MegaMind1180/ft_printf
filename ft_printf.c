@@ -34,7 +34,8 @@ int	ft_printf(char *str, ...)
 		}
 		i++;
 	}
-	return (count);
+	va_end(arg);
+	return (count);	
 }
 
 int	ft_whatisit(char str, va_list *arg)
@@ -58,6 +59,8 @@ int	ft_whatisit(char str, va_list *arg)
 		count = ft_putnbr_hex_lower(va_arg(*arg, unsigned int));
 	if (str == 'X')
 		count = ft_putnbr_hex_upper(va_arg(*arg, unsigned int));
+	if (str == 'p')
+		count = hexer_pointer(va_arg(*arg, unsigned long));
 	return (count);
 }
 
