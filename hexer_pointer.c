@@ -7,8 +7,6 @@ int hexer_pointer(unsigned int n)
 
 	hex = "0123456789abcdef";	
 	count = 0;
-	if (write (1, "0x", 2) == -1)
-		return (-1);
     if (n >= 16)
         hexer_pointer(n / 16);
     if(write(1, &hex[n % 16], 1) == -1)

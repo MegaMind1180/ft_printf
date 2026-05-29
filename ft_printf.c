@@ -20,7 +20,7 @@ int	ft_printf(char *str, ...)
 	{
 		if (str[i] != '%')
 		{
-			if(ft_putchar(str[i], 1) == 1)
+			if(ft_putchar(str[i], 1) == -1)
 				return (-1);
 			count++;
 		}
@@ -44,7 +44,7 @@ int	ft_whatisit(char str, va_list *arg)
 
 	count = 0;
 	if (str == '%')
-		count = ft_putchar('%', -1);
+		count = ft_putchar('%', 1);
 	if (str == 'c')
 	{
 		count = ft_putchar(va_arg(*arg, int), 1);
@@ -60,7 +60,11 @@ int	ft_whatisit(char str, va_list *arg)
 	if (str == 'X')
 		count = ft_putnbr_hex_upper(va_arg(*arg, unsigned int));
 	if (str == 'p')
-		count = hexer_pointer(va_arg(*arg, unsigned long));
+	{
+		if (write(1, "0x", 2) == -1)
+			return (-1);
+		count = hexer_pointer((unsigned long)va_arg(*arg, void *)) + 2;
+	}	
 	return (count);
 }
 
