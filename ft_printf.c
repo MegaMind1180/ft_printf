@@ -63,7 +63,7 @@ int	ft_whatisit(char str, va_list *arg)
 	{
 		if (write(1, "0x", 2) == -1)
 			return (-1);
-		count = hexer_pointer((unsigned long)va_arg(*arg, void *)) + 2;
+		count = ft_putnbr_hex_lower((unsigned long)va_arg(*arg, void *)) + 2;
 	}	
 	return (count);
 }
