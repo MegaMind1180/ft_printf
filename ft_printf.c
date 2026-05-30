@@ -3,7 +3,7 @@
 int	ft_whatisit(char str, va_list *arg);
 void				ft_putchar_fd(char c, int fd);
 
-int     ft_printf(char *str, ...)
+int     ft_printf(const char *str, ...)
 {
         va_list arg;
         int     count;
