@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-int ft_putnbr_hex_upper(unsigned int n)
+int ft_putnbr_hex_upper(unsigned long n)
 {
     char	*hex; 
 	int		count;
