@@ -1,5 +1,7 @@
 #include "ft_printf.h"
 
+int ft_strlen(char *);
+
 int    ft_putstr(char *s, int fd)
 {
         int  i;

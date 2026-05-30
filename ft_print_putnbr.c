@@ -8,7 +8,7 @@ int     ft_print_putnbr(long long n)
         count = 0;
         if (n < 0)
         {
-                ft_putchar_fd('-', 1);
+                ft_putchar('-', 1);
                 count++;
                 n *= -1;
         }

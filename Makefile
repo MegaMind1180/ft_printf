@@ -8,11 +8,11 @@ OBJECTS = $(SOURCES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJECTS) libft.a
+	cp libft.a $(NAME)
 	ar rcs $(NAME) $(OBJECTS)
-	ar rcs $(NAME) libft.a
 
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -o $@ -c $
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
 	rm -rf $(OBJECTS)
