@@ -1,8 +1,14 @@
+
 CC = cc
+
 CFLAGS = -Wall -Wextra -Werror
+
 NAME = libftprintf.a
+
 HEADER = ft_printf.h
+
 SOURCES = ft_printf.c ft_print_putnbr.c ft_printstr.c ft_putchar.c ft_putnbr_hex_lower.c ft_putnbr_hex_upper.c ft_strlen.c
+
 OBJECTS = $(SOURCES:.c=.o)
 
 all: $(NAME)
